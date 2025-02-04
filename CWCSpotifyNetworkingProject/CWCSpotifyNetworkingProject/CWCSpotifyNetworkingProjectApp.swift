@@ -10,8 +10,11 @@ import SwiftUI
 @main
 struct CWCSpotifyNetworkingProjectApp: App {
     var body: some Scene {
+        @State var viewModel = ContentViewModel()
+        
         WindowGroup {
             ContentView()
         }
+        .environment(viewModel)
     }
 }
