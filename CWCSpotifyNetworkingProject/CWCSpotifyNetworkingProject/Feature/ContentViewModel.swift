@@ -10,7 +10,6 @@ import SwiftUI
 
 @Observable
 class ContentViewModel: ObservableObject {
-    @Published var helloWorld = "Hello, World!"
     
     
 }

@@ -9,12 +9,20 @@ import SwiftUI
 
 @main
 struct CWCSpotifyNetworkingProjectApp: App {
+    
+    @State var viewModel = ContentViewModel()
+    @AppStorage("onboarding") var needsOnboarding = true
+ 
     var body: some Scene {
-        @State var viewModel = ContentViewModel()
-        
         WindowGroup {
             ContentView()
+                .fullScreenCover(isPresented: $needsOnboarding) {
+                    needsOnboarding = false
+                } content: {
+                    OnboardingView()
+                }
+                .environment(viewModel)
         }
-        .environment(viewModel)
+        
     }
 }
